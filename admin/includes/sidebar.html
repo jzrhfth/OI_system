@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar Navigation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        .sidebar {
+            width: 240px;
+            height: 100vh;
+            background-color: #ffffff;
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-section {
+            flex: 1;
+            padding: 0 15px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            margin-bottom: 5px;
+            border-radius: 8px;
+            color: #5f6368;
+            text-decoration: none;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .nav-item:hover {
+            background-color: #f8f9fa;
+        }
+
+        .nav-item.active {
+            background-color: #7c8cf5;
+            color: white;
+        }
+
+        .nav-item i {
+            width: 20px;
+            font-size: 18px;
+            margin-right: 12px;
+            flex-shrink: 0;
+            text-align: center;
+        }
+
+        .divider {
+            height: 1px;
+            background-color: #e8eaed;
+            margin: 15px 0;
+        }
+
+        .bottom-section {
+            padding: 0 15px;
+            margin-top: auto;
+        }
+
+        .nav-item.logout {
+            color: #d93025;
+        }
+
+        .nav-item.logout:hover {
+            background-color: #fce8e6;
+        }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="nav-section">
+            <a href="dashboard.html" class="nav-item active" data-page="dashboard">
+                <i class="fa-solid fa-bars"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="inventory.html" class="nav-item" data-page="transaction">
+                <i class="fa-solid fa-boxes-stacked"></i>
+                <span>Inventory</span>
+            </a>
+
+            <a href="request.html" class="nav-item" data-page="reports">
+                <i class="fa-solid fa-file-invoice"></i>
+                <span>Request</span>
+            </a>
+            
+
+            <div class="divider"></div>
+
+            <a href="#" class="nav-item" data-page="settings">
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </a>
+
+            <a href="#" class="nav-item" data-page="help">
+                <i class="fa-solid fa-circle-question"></i>
+                <span>Help</span>
+            </a>
+        </div>
+
+        <div class="bottom-section">
+            <a href="#" class="nav-item logout" id="logoutBtn">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Log Out</span>
+            </a>
+        </div>
+    </nav>
+
+    <script>
+        // Handle navigation item clicks
+        const navItems = document.querySelectorAll('.nav-item:not(.logout)');
+        
+        navItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all items
+                navItems.forEach(nav => nav.classList.remove('active'));
+                
+                // Add active class to clicked item
+                this.classList.add('active');
+                
+                // Get the page name
+                const page = this.getAttribute('data-page');
+                console.log(`Navigating to: ${page}`);
+                
+                // You can add your navigation logic here
+                // For example: window.location.href = `/${page}`;
+            });
+        });
+
+        // Handle logout
+        const logoutBtn = document.getElementById('logoutBtn');
+        logoutBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            if (confirm('Are you sure you want to log out?')) {
+                console.log('Logging out...');
+                // Add your logout logic here
+                // For example: window.location.href = '/logout';
+            }
+        });
+
+        // Optional: Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.altKey) {
+                const shortcuts = {
+                    'd': 0, // Dashboard
+                    'p': 1, // Projects
+                    't': 2, // Transaction
+                    'm': 3, // My Team
+                    'r': 4, // Research Data
+                };
+                
+                if (shortcuts.hasOwnProperty(e.key.toLowerCase())) {
+                    e.preventDefault();
+                    navItems[shortcuts[e.key.toLowerCase()]].click();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
