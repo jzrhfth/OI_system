@@ -21,6 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($username === 'admin' && $password === 'password') { // Example credentials
         $_SESSION['username'] = $username;
         $_SESSION['role'] = 'Administrator';
+        $_SESSION['admin_id'] = 1; // Set admin ID for header logic
         header("Location: dashboard.php");
         exit();
     } else {

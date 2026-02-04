@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sidebar Navigation</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background-color: #f5f5f5;
-        }
-
         .sidebar {
             width: 240px;
             height: 100vh;
@@ -25,6 +7,10 @@
             display: flex;
             flex-direction: column;
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
         }
 
         .nav-section {
@@ -81,8 +67,6 @@
             background-color: #fce8e6;
         }
     </style>
-</head>
-<body>
     <nav class="sidebar">
         <div class="nav-section">
             <a href="dashboard.php" class="nav-item active" data-page="dashboard">
@@ -175,5 +159,3 @@
             }
         });
     </script>
-</body>
-</html>

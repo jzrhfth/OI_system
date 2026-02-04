@@ -5,5 +5,11 @@ define('DB_PASS','root');
 define('DB_NAME','dboffice');
 define('DB_CHARSET','utf8mb4');
 
-$dsn = "mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=".DB_CHARSET;
+// Establish database connection using PDO
+try {
+    $dbh = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PASS);
+    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    exit("Error: " . $e->getMessage());
+}
 ?>

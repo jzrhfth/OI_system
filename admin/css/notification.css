@@ -1,0 +1,126 @@
+.notif-panel {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 100px; /* Positioned near the bell icon */
+    width: 320px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    border: 1px solid #f0f0f0;
+    animation: slideDown 0.2s ease-out;
+}
+
+.notif-panel.show {
+    display: block;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.panel-header {
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f0;
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+    background-color: #fff;
+    border-radius: 8px 8px 0 0;
+}
+
+.notif-tabs {
+    display: flex;
+    border-bottom: 1px solid #f0f0f0;
+    background-color: #fafafa;
+}
+
+.notif-tab {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 13px;
+    color: #666;
+    font-weight: 500;
+    transition: all 0.2s;
+    outline: none;
+}
+
+.notif-tab:hover {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.notif-tab.active {
+    color: #4A90E2;
+    background-color: #ffffff;
+    border-bottom: 2px solid #4A90E2;
+}
+
+.panel-body {
+    max-height: 360px;
+    overflow-y: auto;
+    background-color: #fff;
+    border-radius: 0 0 8px 8px;
+}
+
+.notif-empty {
+    padding: 30px 20px;
+    text-align: center;
+    color: #999;
+    font-size: 13px;
+}
+
+/* Notification Items */
+.notif-item {
+    display: block;
+    padding: 12px 15px;
+    border-bottom: 1px solid #f5f5f5;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.notif-item:last-child {
+    border-bottom: none;
+}
+
+.notif-item:hover {
+    background-color: #f9f9f9;
+}
+
+.notif-item.unread {
+    background-color: #f0f7ff;
+    border-left: 3px solid #4A90E2;
+}
+
+.notif-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.notif-text {
+    font-size: 13px;
+    color: #333;
+    line-height: 1.4;
+}
+
+.notif-time {
+    font-size: 11px;
+    color: #999;
+    margin-top: 2px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+    .notif-panel {
+        right: 10px;
+        left: 10px;
+        width: auto;
+        top: 65px;
+    }
+}
