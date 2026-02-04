@@ -11,23 +11,23 @@ if (isset($_SESSION['username'])) {
 
 // Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // include('includes/dbconnection.php'); // Uncomment when DB is ready
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // --- Placeholder for database validation ---
-    // In a real application, query the database for the user
-    // and verify the hashed password.
-    if ($username === 'admin' && $password === 'password') { // Example credentials
-        $_SESSION['username'] = $username;
-        $_SESSION['role'] = 'Administrator';
-        $_SESSION['admin_id'] = 1; // Set admin ID for header logic
+    $sql = "SELECT id, username, password FROM admin WHERE username=:username";
+    $query = $dbh->prepare($sql);
+    $query->bindParam(':username', $username, PDO::PARAM_STR);
+    $query->execute();
+    $result = $query->fetch(PDO::FETCH_OBJ);
+
+    if ($result && md5($password) === $result->password) {
+        $_SESSION['username'] = $result->username;
+        $_SESSION['admin_id'] = $result->id;
         header("Location: dashboard.php");
         exit();
     } else {
         $error_message = "Invalid username or password.";
     }
-    // --- End of placeholder ---
 }
 ?>
 <!DOCTYPE html>
@@ -55,10 +55,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
+                <div style="margin-top: 8px; display: flex; align-items: center; gap: 8px;">
+                    <input type="checkbox" id="togglePassword" style="width: auto; margin: 0;">
+                    <label for="togglePassword" style="font-weight: normal; font-size: 0.9em; margin: 0; cursor: pointer;">Show Password</label>
+                </div>
             </div>
             <button type="submit">Login</button>
         </form>
     </div>
-    <script src="js/script.js"></script>
+    <script src="js/login.js"></script>
 </body>
 </html>

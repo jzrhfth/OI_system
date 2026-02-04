@@ -31,26 +31,26 @@ $page_title = "Inventory";
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-label">Total Items</div>
-                <div class="stat-value">156</div>
-                <div class="stat-change positive">▲ 12 New</div>
+                <div class="stat-value"></div>
+                <div class="stat-change positive"></div>
                 <i class="fa-solid fa-boxes-stacked stat-icon-bg"></i>
             </div>
             <div class="stat-card">
                 <div class="stat-label">In Stock</div>
-                <div class="stat-value">142</div>
-                <div class="stat-change positive">91% of Total</div>
+                <div class="stat-value"></div>
+                <div class="stat-change positive"></div>
                 <i class="fa-solid fa-check-circle stat-icon-bg"></i>
             </div>
             <div class="stat-card">
                 <div class="stat-label">Low Stock</div>
-                <div class="stat-value">12</div>
-                <div class="stat-change negative">Needs Action</div>
+                <div class="stat-value"></div>
+                <div class="stat-change negative"></div>
                 <i class="fa-solid fa-triangle-exclamation stat-icon-bg"></i>
             </div>
             <div class="stat-card">
                 <div class="stat-label">Out of Stock</div>
-                <div class="stat-value">2</div>
-                <div class="stat-change negative">Urgent</div>
+                <div class="stat-value"></div>
+                <div class="stat-change negative"></div>
                 <i class="fa-solid fa-circle-xmark stat-icon-bg"></i>
             </div>
         </div>
@@ -74,61 +74,6 @@ $page_title = "Inventory";
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td style="font-weight: 600;">A4 Paper Ream (500 Sheets)</td>
-                            <td>Paper Products</td>
-                            <td>120</td>
-                            <td>50</td>
-                            <td><span class="status-badge approved">In Stock</span></td>
-                            <td>
-                                <a href="#" title="Edit" style="color: #3498db; margin-right: 10px;"><i class="fa-solid fa-pencil"></i></a>
-                                <a href="#" title="Delete" style="color: #e74c3c;"><i class="fa-solid fa-trash"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="font-weight: 600;">Black Ballpoint Pens (Box of 50)</td>
-                            <td>Writing Instruments</td>
-                            <td>45</td>
-                            <td>50</td>
-                            <td><span class="status-badge pending">Low Stock</span></td>
-                            <td>
-                                <a href="#" title="Edit" style="color: #3498db; margin-right: 10px;"><i class="fa-solid fa-pencil"></i></a>
-                                <a href="#" title="Delete" style="color: #e74c3c;"><i class="fa-solid fa-trash"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="font-weight: 600;">Stapler, Standard Size</td>
-                            <td>Desk Accessories</td>
-                            <td>30</td>
-                            <td>20</td>
-                            <td><span class="status-badge approved">In Stock</span></td>
-                            <td>
-                                <a href="#" title="Edit" style="color: #3498db; margin-right: 10px;"><i class="fa-solid fa-pencil"></i></a>
-                                <a href="#" title="Delete" style="color: #e74c3c;"><i class="fa-solid fa-trash"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="font-weight: 600;">Toner Cartridge (HP LaserJet)</td>
-                            <td>Printer Supplies</td>
-                            <td>5</td>
-                            <td>10</td>
-                            <td><span class="status-badge pending">Low Stock</span></td>
-                            <td>
-                                <a href="#" title="Edit" style="color: #3498db; margin-right: 10px;"><i class="fa-solid fa-pencil"></i></a>
-                                <a href="#" title="Delete" style="color: #e74c3c;"><i class="fa-solid fa-trash"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="font-weight: 600;">Whiteboard Markers (4-Pack)</td>
-                            <td>Meeting Supplies</td>
-                            <td>0</td>
-                            <td>15</td>
-                            <td><span class="status-badge rejected">Out of Stock</span></td>
-                            <td>
-                                <a href="#" title="Edit" style="color: #3498db; margin-right: 10px;"><i class="fa-solid fa-pencil"></i></a>
-                                <a href="#" title="Delete" style="color: #e74c3c;"><i class="fa-solid fa-trash"></i></a>
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
             </div>

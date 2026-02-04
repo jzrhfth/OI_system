@@ -41,56 +41,6 @@ $page_title = "All Requests";
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>MRS-2026-005</td>
-                            <td>Oct 24, 2025</td>
-                            <td style="font-weight: 600;">IT Department</td>
-                            <td>Alex Johnson</td>
-                            <td><span class="status-badge pending">Pending</span></td>
-                            <td>
-                                <a href="#" title="View" style="color: #3498db; margin-right: 10px;"><i class="fa-solid fa-eye"></i></a>
-                                <a href="#" title="Edit" style="color: #2ecc71; margin-right: 10px;"><i class="fa-solid fa-pencil"></i></a>
-                                <a href="#" title="Delete" style="color: #e74c3c;"><i class="fa-solid fa-trash"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>MRS-2026-004</td>
-                            <td>Oct 23, 2025</td>
-                            <td style="font-weight: 600;">Human Resources</td>
-                            <td>Sarah Smith</td>
-                            <td><span class="status-badge approved">Approved</span></td>
-                            <td>
-                                <a href="#" title="View" style="color: #3498db; margin-right: 10px;"><i class="fa-solid fa-eye"></i></a>
-                                <a href="#" title="Edit" style="color: #2ecc71; margin-right: 10px;"><i class="fa-solid fa-pencil"></i></a>
-                                <a href="#" title="Delete" style="color: #e74c3c;"><i class="fa-solid fa-trash"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>MRS-2026-003</td>
-                            <td>Oct 22, 2025</td>
-                            <td style="font-weight: 600;">Operations</td>
-                            <td>Mike Brown</td>
-                            <td><span class="status-badge approved">Approved</span></td>
-                            <td>
-                                <a href="#" title="View" style="color: #3498db; margin-right: 10px;"><i class="fa-solid fa-eye"></i></a>
-                                <a href="#" title="Edit" style="color: #2ecc71; margin-right: 10px;"><i class="fa-solid fa-pencil"></i></a>
-                                <a href="#" title="Delete" style="color: #e74c3c;"><i class="fa-solid fa-trash"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>MRS-2026-002</td>
-                            <td>Oct 21, 2025</td>
-                            <td style="font-weight: 600;">Finance</td>
-                            <td>Emily Davis</td>
-                            <td><span class="status-badge rejected">Rejected</span></td>
-                            <td>
-                                <a href="#" title="View" style="color: #3498db; margin-right: 10px;"><i class="fa-solid fa-eye"></i></a>
-                                <a href="#" title="Edit" style="color: #2ecc71; margin-right: 10px;"><i class="fa-solid fa-pencil"></i></a>
-                                <a href="#" title="Delete" style="color: #e74c3c;"><i class="fa-solid fa-trash"></i></a>
-                            </td>
-                        </tr>
-                    </tbody>
                 </table>
             </div>
         </div>

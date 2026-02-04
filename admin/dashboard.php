@@ -1,6 +1,10 @@
 <?php
 session_start();
 include('includes/dbconnection.php');
+if (!isset($_SESSION['admin_id'])) {
+    header('location:login.php');
+    exit();
+}
 $page_title = "Dashboard";
 ?>
 <!DOCTYPE html>
@@ -40,26 +44,26 @@ $page_title = "Dashboard";
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-label">Total Requests</div>
-                <div class="stat-value">152</div>
-                <div class="stat-change positive">▲ 12.5%</div>
+                <div class="stat-value"></div>
+                <div class="stat-change positive"></div>
                 <i class="fa-solid fa-file-invoice stat-icon-bg"></i>
             </div>
             <div class="stat-card">
                 <div class="stat-label">Pending Approval</div>
-                <div class="stat-value">12</div>
-                <div class="stat-change negative">▼ 2.1%</div>
+                <div class="stat-value"></div>
+                <div class="stat-change negative"></div>
                 <i class="fa-solid fa-clock stat-icon-bg"></i>
             </div>
             <div class="stat-card">
                 <div class="stat-label">Approved</div>
-                <div class="stat-value">135</div>
-                <div class="stat-change positive">▲ 8.4%</div>
+                <div class="stat-value"></div>
+                <div class="stat-change positive"></div>
                 <i class="fa-solid fa-check-circle stat-icon-bg"></i>
             </div>
             <div class="stat-card">
                 <div class="stat-label">Low Stock Items</div>
-                <div class="stat-value">4</div>
-                <div class="stat-change negative">▼ 1 item</div>
+                <div class="stat-value"></div>
+                <div class="stat-change negative"></div>
                 <i class="fa-solid fa-triangle-exclamation stat-icon-bg"></i>
             </div>
         </div>
@@ -81,7 +85,6 @@ $page_title = "Dashboard";
             <div class="table-card">
                 <div class="table-title">
                     <span>Recent Requests</span>
-                    <a href="requests.php" class="btn-new"><i class="fa-solid fa-plus"></i> Create New</a>
                 </div>
                 <table>
                     <thead>
@@ -95,38 +98,6 @@ $page_title = "Dashboard";
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>MRS-2026-005</td>
-                            <td>Oct 24, 2025</td>
-                            <td style="font-weight: 600;">IT Department</td>
-                            <td>Alex Johnson</td>
-                            <td><span class="status-badge pending">Pending</span></td>
-                            <td><a href="#" style="color: #3498db;"><i class="fa-solid fa-eye"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>MRS-2026-004</td>
-                            <td>Oct 23, 2025</td>
-                            <td style="font-weight: 600;">Human Resources</td>
-                            <td>Sarah Smith</td>
-                            <td><span class="status-badge approved">Approved</span></td>
-                            <td><a href="#" style="color: #3498db;"><i class="fa-solid fa-eye"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>MRS-2026-003</td>
-                            <td>Oct 22, 2025</td>
-                            <td style="font-weight: 600;">Operations</td>
-                            <td>Mike Brown</td>
-                            <td><span class="status-badge approved">Approved</span></td>
-                            <td><a href="#" style="color: #3498db;"><i class="fa-solid fa-eye"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>MRS-2026-002</td>
-                            <td>Oct 21, 2025</td>
-                            <td style="font-weight: 600;">Finance</td>
-                            <td>Emily Davis</td>
-                            <td><span class="status-badge approved">Approved</span></td>
-                            <td><a href="#" style="color: #3498db;"><i class="fa-solid fa-eye"></i></a></td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -142,7 +113,7 @@ $page_title = "Dashboard";
                 labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
                 datasets: [{
                     label: 'Requests',
-                    data: [12, 19, 15, 25, 22, 30, 28, 35, 40, 45, 42, 50],
+                    data: [],
                     borderColor: '#4169e1',
                     backgroundColor: 'rgba(65, 105, 225, 0.1)',
                     fill: true,

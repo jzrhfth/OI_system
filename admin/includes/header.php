@@ -64,8 +64,7 @@
         <div class="logo-container">
             <img src="../images/logo 1.png" alt="Logo" class="logo-img">
             <div class="logo-text-group">
-                <span class="main">HOKU</span>
-                <span class="sub">Admin Panel</span>
+                <h1 class="main">HOKU PMS</h1>
             </div>
         </div>
         <div class="dashboard-info">
@@ -181,16 +180,10 @@
                         <div class="user-avatar-initials" style="width: 32px; height: 32px; background: #4A90E2; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center;"><?php echo substr($adminName, 0, 1); ?></div>
                     <?php } ?>
                     <div class="user-info">
-                        <span class="name"><?php echo htmlentities($adminName); ?></span>
-                        <span class="role">Administrator</span>
+                        <h3 class="name"><?php echo htmlentities($adminName); ?></h3>
+                        <h5 class="role">Administrator</h5>
                     </div>
-                    <i class="fas fa-chevron-down dropdown-arrow"></i>
             </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
-                <a class="dropdown-item" href="profile.php"><i class="fas fa-user"></i> My Profile</a>
-                <a class="dropdown-item" href="change-password.php"><i class="fas fa-key"></i> Change Password</a>
-                <a class="dropdown-item" href="logout.php"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
-            </div>
         </div>
 
         <!-- Notification panel (hidden by default) -->
@@ -214,5 +207,25 @@
     // Pass PHP data to global JavaScript variables
     var notificationsData = <?php echo json_encode($grouped_notifications); ?>;
     var allNotificationsData = <?php echo json_encode($all_notifications); ?>;
+
+    // User Profile Dropdown Toggle
+    document.addEventListener('DOMContentLoaded', function() {
+        const userDropdown = document.getElementById('UserDropdown');
+        // The dropdown menu is the next sibling element
+        const dropdownMenu = userDropdown.nextElementSibling;
+
+        if (userDropdown && dropdownMenu) {
+            userDropdown.addEventListener('click', function(e) {
+                e.preventDefault();
+                dropdownMenu.classList.toggle('show');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!userDropdown.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                    dropdownMenu.classList.remove('show');
+                }
+            });
+        }
+    });
 </script>
-<script src="js/notification.js"></script>
