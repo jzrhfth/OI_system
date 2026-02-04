@@ -85,17 +85,17 @@
 <body>
     <nav class="sidebar">
         <div class="nav-section">
-            <a href="dashboard.html" class="nav-item active" data-page="dashboard">
+            <a href="dashboard.php" class="nav-item active" data-page="dashboard">
                 <i class="fa-solid fa-bars"></i>
                 <span>Dashboard</span>
             </a>
 
-            <a href="inventory.html" class="nav-item" data-page="transaction">
+            <a href="inventory.php" class="nav-item" data-page="inventory">
                 <i class="fa-solid fa-boxes-stacked"></i>
                 <span>Inventory</span>
             </a>
 
-            <a href="request.html" class="nav-item" data-page="reports">
+            <a href="requests.php" class="nav-item" data-page="requests">
                 <i class="fa-solid fa-file-invoice"></i>
                 <span>Request</span>
             </a>
@@ -115,7 +115,7 @@
         </div>
 
         <div class="bottom-section">
-            <a href="#" class="nav-item logout" id="logoutBtn">
+            <a href="login.php" class="nav-item logout" id="logoutBtn">
                 <i class="fa-solid fa-right-from-bracket"></i>
                 <span>Log Out</span>
             </a>

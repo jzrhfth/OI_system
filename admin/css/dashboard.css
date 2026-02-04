@@ -202,6 +202,10 @@ body {
     font-weight: 600;
     color: var(--text-primary);
 }
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+}
 
 .chart-container {
     position: relative;
