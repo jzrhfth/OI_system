@@ -12,7 +12,10 @@ function initializeTable() {
     const formDateEl = document.getElementById('formDate');
     if (formDateEl) formDateEl.valueAsDate = new Date();
     const mrsEl = document.getElementById('mrsNo');
-    if (mrsEl) mrsEl.value = generateMRSNumber();
+    // Only generate if the value is the default placeholder or empty
+    if (mrsEl && (mrsEl.value === 'MRS-2026-000' || mrsEl.value === '')) {
+        mrsEl.value = generateMRSNumber();
+    }
 }
 
 function generateMRSNumber() {
@@ -38,10 +41,10 @@ function addRow() {
     newRow.className = 'animate-row';
     newRow.innerHTML = `
         <td>${rowCount}</td>
-        <td><input type="text" class="item-desc" placeholder=""></td>
-        <td><input type="number" class="item-qty" min="0" placeholder=""></td>
+        <td><input type="text" name="description[]" class="item-desc" placeholder=""></td>
+        <td><input type="number" name="quantity[]" class="item-qty" min="0" placeholder=""></td>
         <td>
-            <select>
+            <select name="unit[]">
                 <option value=""></option>
                 <option value="pcs">pcs</option>
                 <option value="box">box</option>
@@ -51,9 +54,9 @@ function addRow() {
                 <option value="unit">unit</option>
             </select>
         </td>
-        <td><input type="text" class="item-purpose" placeholder=""></td>
+        <td><input type="text" name="purpose[]" class="item-purpose" placeholder=""></td>
         <td style="text-align: center; vertical-align: middle;">
-            <button class="delete-btn">✕</button>
+            <button type="button" class="delete-btn">✕</button>
         </td>
     `;
     tableBody.appendChild(newRow);
@@ -97,12 +100,8 @@ function clearForm() {
     const dept = document.getElementById('department'); if (dept) dept.value = '';
     const mrs = document.getElementById('mrsNo'); if (mrs) mrs.value = generateMRSNumber();
     
-    // Clear signature fields
-    const ids = ['reqName','reqPosition','reqDate','reqSignature','appName','appPosition','appDate','appSignature'];
-    ids.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.value = '';
-    });
+    // Clear requester name
+    const reqName = document.getElementById('reqName'); if (reqName) reqName.value = '';
     
     // Clear and reinitialize table
     const tableBody = document.getElementById('tableBody');
